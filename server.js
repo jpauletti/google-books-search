@@ -2,6 +2,10 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+var mongoose = require("mongoose");
+
+// require models
+var db = require("./models");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -11,7 +15,16 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// connect to mongo db
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+// fix deprecation surrounding findOneAndUpdate()
+mongoose.set('useFindAndModify', false);
+
+
 // Define API routes here
+// require("./routes/apiRoutes")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs
