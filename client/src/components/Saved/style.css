@@ -1,0 +1,20 @@
+/* .result-card {
+    border: 1px solid rgba(0,0,0, 0.3);
+    border-radius: 5px;
+    padding: 5px 0;
+} */
+
+.card-title {
+    margin-bottom: .5rem;
+}
+
+.firstBtn {
+    margin-right: 8px;
+}
+
+@media screen and (max-width: 991px) {
+    .firstBtn {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+}

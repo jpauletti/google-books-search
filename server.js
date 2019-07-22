@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const apiRoutes = require("./routes/apiRoutes");
 
 // require models
 var db = require("./models");
@@ -24,7 +25,7 @@ mongoose.set('useFindAndModify', false);
 
 
 // Define API routes here
-// require("./routes/apiRoutes")(app);
+app.use(apiRoutes);
 
 // Send every other request to the React app
 // Define any API routes before this runs
