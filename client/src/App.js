@@ -7,11 +7,23 @@ import Search from "./components/Search";
 import Results from "./components/Results";
 import Saved from "./components/Saved";
 import NotFound from "./components/NotFound";
+import API from "./utils/API";
 
 class App extends Component {
 
   state = {
-    searchResults: ""
+    searchResults: "",
+    savedBooks: []
+  }
+
+  componentDidMount = () => {
+    this.getSavedBooks();
+  }
+
+  getSavedBooks = () => {
+    API.getSavedBooks().then(dbData => {
+      console.log(dbData);
+    }).catch(err => { if(err) console.log(err) })
   }
 
   updateResults = itemsArr => {
@@ -36,6 +48,14 @@ class App extends Component {
     );
   }
 
+  SavedSection = (props) => {
+    return (
+      <Saved
+        searchResults={this.state.savedBooks}
+      />
+    );
+  }
+
   render() {
     return (
       <>
@@ -47,7 +67,7 @@ class App extends Component {
             <Router>
               <Switch>
                 <Route exact path="/" render={this.ResultsSection} />
-                <Route exact path="/saved" component={Saved} />
+                <Route exact path="/saved" render={this.SavedSection} />
                 <Route component={NotFound} />
               </Switch>
               {/* <Saved title="Saved" /> */}

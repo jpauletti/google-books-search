@@ -1,11 +1,24 @@
 import React, { Component } from "react";
 import "./style.css";
+import API from "../../utils/API";
 
 class Results extends Component {
     componentDidMount = () => {
-        setTimeout(() => {
-            console.log(this.props.searchResults);
-        }, 5000)
+        
+    }
+
+
+    saveBook = event => {
+        event.preventDefault();
+        const index = event.target.parentNode.parentNode.parentNode.getAttribute("data-i");
+        console.log(index);
+
+        const newBook = this.props.searchResults[index];
+        console.log(newBook);
+
+        API.saveBook(newBook).then(dbData => {
+            console.log("saved");
+        })
     }
 
     render() {
@@ -20,20 +33,20 @@ class Results extends Component {
                             {this.props.searchResults ? 
                                 this.props.searchResults.map((book, i) => {
                                     return (
-                                        <div className="result-card">
+                                        <div className="result-card" data-i={i}>
                                             <div className="row">
                                                 <div className="col-md-10 col-sm-9">
                                                     <h5 class="card-title">{book.title}</h5>
-                                                    <p class="card-text">Written by: {book.authors.map((author, i) =>{
+                                                    { book.authors ? <p class="card-text">Written by: {book.authors.map((author, i) =>{
                                                         if (i === book.authors.length - 1) {
                                                             return author;
                                                         }
                                                         return author + ", ";
-                                                    })}</p>
+                                                    })}</p> : "" }
                                                 </div>
                                                 <div className="col-md-2 col-sm-3 text-right">
-                                                    <a href="#" class="btn btn-sm btn-primary firstBtn">View</a>
-                                                    <a href="#" class="btn btn-sm btn-primary">Delete</a>
+                                                    <a href={book.link} target="_blank" class="btn btn-sm btn-primary firstBtn">View</a>
+                                                    <a href="#" class="btn btn-sm btn-primary save-book" onClick={this.saveBook}>Save</a>
                                                 </div>
                                             </div>
                                             <div className="row mt-2">

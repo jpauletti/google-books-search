@@ -10,7 +10,6 @@ class Saved extends Component {
         return (
             <div className="row mt-4">
                 <div className="col-md-12">
-                    {/* <h3 className="display-5">{this.props.title}</h3> */}
                     <div class="card">
                         <h5 class="card-header">Saved</h5>
                         <div class="card-body">
