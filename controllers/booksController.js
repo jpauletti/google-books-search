@@ -6,6 +6,7 @@ module.exports = {
         db.Book.create(req.body)
         .then(function (dbData) {
             console.log(dbData);
+            res.json(dbData);
         }).catch(err => { if (err) console.log(err) });
     },
 
@@ -13,6 +14,7 @@ module.exports = {
         db.Book.find({})
         .then(function(dbData) {
             res.json(dbData);
+            console.log(dbData);
         }).catch(err => { if(err) console.log(err) })
     }
 

@@ -13,7 +13,7 @@ class App extends Component {
 
   state = {
     searchResults: "",
-    savedBooks: []
+    savedBooks: ""
   }
 
   componentDidMount = () => {
@@ -23,6 +23,9 @@ class App extends Component {
   getSavedBooks = () => {
     API.getSavedBooks().then(dbData => {
       console.log(dbData);
+      this.setState({
+        savedBooks: dbData.data
+      })
     }).catch(err => { if(err) console.log(err) })
   }
 
@@ -51,7 +54,7 @@ class App extends Component {
   SavedSection = (props) => {
     return (
       <Saved
-        searchResults={this.state.savedBooks}
+        savedBooks={this.state.savedBooks}
       />
     );
   }

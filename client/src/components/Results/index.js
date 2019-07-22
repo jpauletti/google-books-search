@@ -17,7 +17,8 @@ class Results extends Component {
         console.log(newBook);
 
         API.saveBook(newBook).then(dbData => {
-            console.log("saved");
+            // console.log("saved");
+            window.location.replace("/saved");
         })
     }
 
@@ -26,9 +27,9 @@ class Results extends Component {
             <div className="row mt-4">
                 <div className="col-md-12">
                     {/* <h3 className="display-5">{this.props.title}</h3> */}
-                    <div class="card">
-                        <h5 class="card-header">Results</h5>
-                        <div class="card-body">
+                    <div className="card">
+                        <h5 className="card-header">Results</h5>
+                        <div className="card-body">
 
                             {this.props.searchResults ? 
                                 this.props.searchResults.map((book, i) => {
@@ -36,8 +37,8 @@ class Results extends Component {
                                         <div className="result-card" data-i={i}>
                                             <div className="row">
                                                 <div className="col-md-10 col-sm-9">
-                                                    <h5 class="card-title">{book.title}</h5>
-                                                    { book.authors ? <p class="card-text">Written by: {book.authors.map((author, i) =>{
+                                                    <h5 className="card-title">{book.title}</h5>
+                                                    {book.authors ? <p className="card-text">Written by: {book.authors.map((author, i) =>{
                                                         if (i === book.authors.length - 1) {
                                                             return author;
                                                         }
@@ -45,8 +46,8 @@ class Results extends Component {
                                                     })}</p> : "" }
                                                 </div>
                                                 <div className="col-md-2 col-sm-3 text-right">
-                                                    <a href={book.link} target="_blank" class="btn btn-sm btn-primary firstBtn">View</a>
-                                                    <a href="#" class="btn btn-sm btn-primary save-book" onClick={this.saveBook}>Save</a>
+                                                    <a href={book.link} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary firstBtn">View</a>
+                                                    <a href="#" className="btn btn-sm btn-primary save-book" onClick={this.saveBook}>Save</a>
                                                 </div>
                                             </div>
                                             <div className="row mt-2">

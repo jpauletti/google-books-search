@@ -26,6 +26,13 @@ mongoose.set('useFindAndModify', false);
 
 // Define API routes here
 app.use(apiRoutes);
+// router.post("/api/books", function(req, res) {
+//   db.Book.create(req.body)
+//     .then(function (dbData) {
+//       console.log(dbData);
+//       res.json(dbData);
+//     }).catch(err => { if (err) console.log(err) });
+// }
 
 // Send every other request to the React app
 // Define any API routes before this runs
