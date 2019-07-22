@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import Results from "./components/Results";
 import Saved from "./components/Saved";
+import NotFound from "./components/NotFound";
 
 class App extends Component {
   render() {
@@ -15,10 +16,13 @@ class App extends Component {
           <Navbar />
           <div className="container mb-5">
             <Header />
-            <Route exact path="/saved" component={Search} />
+            <Route exact path="/" component={Search} />
             <Router>
-              <Route exact path="/" component={Results} />
-              <Route exact path="/saved" component={Saved} />
+              <Switch>
+                <Route exact path="/" component={Results} />
+                <Route exact path="/saved" component={Saved} />
+                <Route component={NotFound} />
+              </Switch>
               {/* <Saved title="Saved" /> */}
             </Router>
           </div>

@@ -1,0 +1,13 @@
+/* remove margin-left on input field */
+@media (min-width: 576px) {
+    .ml-sm-3, .mx-sm-3 {
+        margin-left: 0 !important;
+    }
+}
+
+/* keep margin-right on input field */
+@media (max-width: 575px) {
+    .mr-sm-3, .mx-sm-3 {
+        margin-right: 1rem!important;
+    }
+}
