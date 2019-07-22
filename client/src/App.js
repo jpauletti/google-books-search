@@ -9,6 +9,33 @@ import Saved from "./components/Saved";
 import NotFound from "./components/NotFound";
 
 class App extends Component {
+
+  state = {
+    searchResults: ""
+  }
+
+  updateResults = itemsArr => {
+    this.setState({
+      searchResults: itemsArr
+    });
+  }
+
+  SearchSection = (props) => {
+    return (
+      <Search
+        updateResults={this.updateResults}
+      />
+    );
+  }
+
+  ResultsSection = (props) => {
+    return (
+      <Results
+        searchResults={this.state.searchResults}
+      />
+    );
+  }
+
   render() {
     return (
       <>
@@ -16,10 +43,10 @@ class App extends Component {
           <Navbar />
           <div className="container mb-5">
             <Header />
-            <Route exact path="/" component={Search} />
+            <Route exact path="/" render={this.SearchSection} />
             <Router>
               <Switch>
-                <Route exact path="/" component={Results} />
+                <Route exact path="/" render={this.ResultsSection} />
                 <Route exact path="/saved" component={Saved} />
                 <Route component={NotFound} />
               </Switch>

@@ -9,10 +9,7 @@ class Search extends Component {
     }
 
     componentDidMount = () => {
-        console.log(this.props);
-        API.getBooks().then(booksRes => {
-            console.log(booksRes);
-        })
+
     }
 
     inputChange = event => {
@@ -24,6 +21,29 @@ class Search extends Component {
 
     searchSubmit = event => {
         event.preventDefault();
+
+        API.getBooks(this.state.search).then(booksRes => {
+            const db = booksRes.data.items;
+            console.log(booksRes.data.items);
+            console.log(booksRes);
+            const results = db.map(book => {
+                const path = book.volumeInfo;
+                const title = path.title;
+                const authors = path.authors;
+                const previewLink = path.previewLink;
+                const description = path.description;
+                const image = path.imageLinks.thumbnail || path.imageLinks.smallThumbnail;
+                return {
+                    title: title,
+                    authors: authors,
+                    description: description,
+                    image: image,
+                    link: previewLink
+                }
+            })
+
+            this.props.updateResults(results);
+        })
 
     }
 
@@ -37,7 +57,7 @@ class Search extends Component {
                             <label for="search" class="sr-only">Search for Books</label>
                             <input type="text" class="form-control" id="search" placeholder="Enter Book Title" value={this.state.search} onChange={this.inputChange} />
                         </div>
-                        <button type="submit" class="btn btn-primary mb-2">Search</button>
+                        <button type="submit" class="btn btn-primary mb-2" onClick={this.searchSubmit}>Search</button>
                     </form>
 
                 </div>
