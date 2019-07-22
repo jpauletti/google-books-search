@@ -22,7 +22,7 @@ class App extends Component {
 
   getSavedBooks = () => {
     API.getSavedBooks().then(dbData => {
-      console.log(dbData);
+      // console.log(dbData);
       this.setState({
         savedBooks: dbData.data
       })

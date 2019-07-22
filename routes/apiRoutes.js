@@ -16,14 +16,16 @@ router.route("/api/books").get(booksController.getAll);
 
 router.route("/api/books").post(booksController.save);
 
-router.route("/api/books/:id", (req, res) => {
-    // delete a book from the database by Mongo _id
-    db.Book.findOneAndDelete({ _id: req.params.id })
-    .then(function (dbData) {
-        console.log(dbData)
-        res.json(dbData);
-    }).catch(err => { if (err) console.log(err) });
-})
+router.route("/api/books/:id").delete(booksController.delete);
+
+// router.route("/api/books/:id", (req, res) => {
+//     // delete a book from the database by Mongo _id
+//     db.Book.findOneAndDelete({ _id: req.params.id })
+//     .then(function (dbData) {
+//         console.log(dbData)
+//         res.json(dbData);
+//     }).catch(err => { if (err) console.log(err) });
+// })
 
 router.route("*", (req, res) => {
     // load your single HTML page in 'client/build/index.html'

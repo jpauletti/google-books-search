@@ -4,8 +4,8 @@ import API from "../../utils/API";
 
 class Saved extends Component {
     componentDidMount = () => {
-        console.log(this.props.savedBooks);
-        console.log(this.props.savedBooks.length === 0);
+        // console.log(this.props.savedBooks);
+        // console.log(this.props.savedBooks.length === 0);
     }
 
 
@@ -22,8 +22,16 @@ class Saved extends Component {
     //     })
     // }
 
-    deleteBook = () => {
+    deleteBook = event => {
+        event.preventDefault();
         console.log("delete book");
+        const index = event.target.parentNode.parentNode.parentNode.getAttribute("data-i");
+        const id = this.props.savedBooks[index]._id;
+
+        API.deleteBook(id).then(dbData => {
+            console.log("deleted");
+            window.location.reload();
+        })
     }
 
     render() {
