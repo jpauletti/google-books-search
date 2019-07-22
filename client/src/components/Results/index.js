@@ -18,7 +18,7 @@ class Results extends Component {
                         <div class="card-body">
 
                             {this.props.searchResults ? 
-                                this.props.searchResults.map(book => {
+                                this.props.searchResults.map((book, i) => {
                                     return (
                                         <div className="result-card">
                                             <div className="row">
@@ -45,7 +45,7 @@ class Results extends Component {
                                                     {book.description}
                                                 </div>
                                             </div>
-                                            <hr />
+                                            { (i !== this.props.searchResults.length -1) ? <hr /> : "" }
                                         </div>
                                     );
                                 }
