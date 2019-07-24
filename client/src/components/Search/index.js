@@ -67,7 +67,7 @@ class Search extends Component {
                     <form className="form-inline">
                         <div className="form-group mx-sm-3 mb-2">
                             <label htmlFor="search" className="sr-only">Search for Books</label>
-                            <input type="text" className="form-control" id="search" placeholder="Enter Book Title" value={this.state.search} onChange={this.inputChange} />
+                            <input type="text" className="form-control" id="search" placeholder="Enter Book Title and/or Author" value={this.state.search} onChange={this.inputChange} />
                         </div>
                         <button type="submit" className="btn btn-primary mb-2" onClick={this.searchSubmit}>Search</button>
                     </form>

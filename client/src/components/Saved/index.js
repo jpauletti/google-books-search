@@ -3,24 +3,6 @@ import "./style.css";
 import API from "../../utils/API";
 
 class Saved extends Component {
-    componentDidMount = () => {
-        // console.log(this.props.savedBooks);
-        // console.log(this.props.savedBooks.length === 0);
-    }
-
-
-    // saveBook = event => {
-    //     event.preventDefault();
-    //     const index = event.target.parentNode.parentNode.parentNode.getAttribute("data-i");
-    //     console.log(index);
-
-    //     const newBook = this.props.searchResults[index];
-    //     console.log(newBook);
-
-    //     API.saveBook(newBook).then(dbData => {
-    //         console.log("saved");
-    //     })
-    // }
 
     deleteBook = event => {
         event.preventDefault();
@@ -105,52 +87,6 @@ class Saved extends Component {
                                 ) : <p>No Saved Books yet.</p>} */}
 
 
-
-                            {/* <div className="result-card">
-                                <div className="row">
-                                    <div className="col-md-10 col-sm-9">
-                                        <h5 class="card-title">Book Title Result</h5>
-                                        <p class="card-text">Written by: Author Name</p>
-                                    </div>
-                                    <div className="col-md-2 col-sm-3 text-right">
-                                        <a href="#" class="btn btn-sm btn-primary firstBtn">View</a>
-                                        <a href="#" class="btn btn-sm btn-primary">Delete</a>
-                                    </div>
-                                </div>
-                                <div className="row mt-2">
-                                    <div className="col-md-3">
-                                        <img className="img-fluid" src="./harry-potter.jpg" width="200px" />
-                                    </div>
-
-                                    <div className="col-md-9">
-                                        lorem ipsum summary text goes here
-                                    </div>
-                                </div>
-                                <hr />
-                            </div>
-
-                            <div className="result-card">
-                                <div className="row">
-                                    <div className="col-md-10 col-sm-9">
-                                        <h5 class="card-title">Book Title Result</h5>
-                                        <p class="card-text">Written by: Author Name</p>
-                                    </div>
-                                    <div className="col-md-2 col-sm-3 text-right">
-                                        <a href="#" class="btn btn-sm btn-primary firstBtn">View</a>
-                                        <a href="#" class="btn btn-sm btn-primary">Delete</a>
-                                    </div>
-                                </div>
-                                <div className="row mt-2">
-                                    <div className="col-md-3">
-                                        <img className="img-fluid" src="./harry-potter.jpg" width="200px" />
-                                    </div>
-
-                                    <div className="col-md-9">
-                                        lorem ipsum summary text goes here
-                                    </div>
-                                </div>
-                                <hr />
-                            </div> */}
                         </div>
                     </div>
 

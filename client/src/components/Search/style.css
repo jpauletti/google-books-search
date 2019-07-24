@@ -16,3 +16,13 @@
         margin-right: 1rem!important;
     }
 }
+
+.form-group {
+    width: 72%;
+}
+
+@media (min-width: 576px) {
+    .form-inline .form-control {
+        width: -webkit-fill-available;
+    }
+}

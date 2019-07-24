@@ -1,6 +1,4 @@
-// const axios = require("axios");
 const router = require("express").Router();
-const db = require("../models");
 const booksController = require("../controllers/booksController");
 
 router.route("/api/books").get(booksController.getAll);
