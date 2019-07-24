@@ -18,11 +18,18 @@
 }
 
 .form-group {
-    width: 72%;
+    width: 50%;
 }
 
 @media (min-width: 576px) {
     .form-inline .form-control {
         width: -webkit-fill-available;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .form-group {
+        width: 72%;
     }
 }

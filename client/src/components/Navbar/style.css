@@ -23,3 +23,11 @@
 .display-4 {
     font-weight: 400;
 }
+
+.navbar-dark .navbar-toggler {
+    border: none;
+}
+
+.navbar-dark .navbar-toggler:focus {
+    outline: none;
+}
