@@ -41,8 +41,37 @@ class Saved extends Component {
                     <div className="card">
                         <h5 className="card-header">Saved</h5>
                         <div className="card-body">
+                            {this.props.savedBooks ?
+                                this.props.savedBooks.map((book, i) => {
+                                    return (
+                                        <div className="card mb-3" data-i={i}>
+                                            <div className="row no-gutters">
+                                                <div className="col-md-3">
+                                                    <img src={book.image} className="card-img" alt="..." />
+                                                </div>
+                                                <div className="col-md-8">
+                                                    <div className="card-body">
+                                                        <h5 className="card-title">{book.title}</h5>
+                                                        {book.authors ? <p className="card-text text-secondary">Written by: {book.authors.map((author, i) => {
+                                                            if (i === book.authors.length - 1) {
+                                                                return author;
+                                                            }
+                                                            return author + ", ";
+                                                        })}</p> : ""}
+                                                        <p className="card-text">{book.description}</p>
+                                                        <a href={book.link} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary firstBtn">View</a>
+                                                        <a href="#" className="btn btn-sm btn-danger" onClick={this.deleteBook}>Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                                ) : <p>No Saved Books yet.</p>}
 
-                            {this.props.savedBooks.length !== 0 ?
+
+
+                            {/* {this.props.savedBooks.length !== 0 ?
                                 this.props.savedBooks.map((book, i) => {
                                     return (
                                         <div className="result-card" data-i={i}>
@@ -63,7 +92,6 @@ class Saved extends Component {
                                             </div>
                                             <div className="row mt-2">
                                                 <div className="col-md-3 book-image" style={{ backgroundImage: `url(${book.image})` }}>
-                                                    {/* <img className="img-fluid" src={book.image} /> */}
                                                 </div>
 
                                                 <div className="col-md-9">
@@ -74,7 +102,7 @@ class Saved extends Component {
                                         </div>
                                     );
                                 }
-                                ) : <p>No Saved Books yet.</p>}
+                                ) : <p>No Saved Books yet.</p>} */}
 
 
 

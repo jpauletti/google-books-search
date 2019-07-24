@@ -25,14 +25,24 @@ class Search extends Component {
         API.getBooks(this.state.search).then(booksRes => {
             const db = booksRes.data.items;
             console.log(booksRes.data.items);
-            console.log(booksRes);
-            const results = db.map(book => {
+            console.log(booksRes.data.items[6].volumeInfo.imageLinks);
+            // console.log(booksRes);
+            const results = db.filter(book => {
+                // filter out results without the fields needed
+                const db = book.volumeInfo;
+                if (db.title && db.authors && db.previewLink && db.description && db.imageLinks) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }).map(book => {
                 const path = book.volumeInfo;
                 const title = path.title;
                 const authors = path.authors;
                 const previewLink = path.previewLink;
-                const description = path.description;
+                const description = path.description.substring(0, 350) + "...";
                 const image = path.imageLinks.thumbnail || path.imageLinks.smallThumbnail;
+
                 return {
                     title: title,
                     authors: authors,
@@ -41,7 +51,8 @@ class Search extends Component {
                     link: previewLink
                 }
             })
-
+            console.log("results")
+            console.log(results)
             this.props.updateResults(results);
         })
 

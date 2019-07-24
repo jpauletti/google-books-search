@@ -3,7 +3,9 @@ import axios from "axios";
 export default {
     // Gets all books from search term
     getBooks: function (searchTerm) {
-        return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + searchTerm);
+        // console.log("https://www.googleapis.com/books/v1/volumes?q=" + searchTerm + "&maxResults=20");
+        // return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + searchTerm);
+        return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + searchTerm + "&maxResults=15");
     },
     // Gets all saved books as json
     getSavedBooks: function () {

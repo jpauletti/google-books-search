@@ -10,7 +10,7 @@ class Results extends Component {
 
     saveBook = event => {
         event.preventDefault();
-        const index = event.target.parentNode.parentNode.parentNode.getAttribute("data-i");
+        const index = event.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-i");
         console.log(index);
 
         const newBook = this.props.searchResults[index];
@@ -31,7 +31,35 @@ class Results extends Component {
                         <h5 className="card-header">Results</h5>
                         <div className="card-body">
 
-                            {this.props.searchResults ? 
+                            {this.props.searchResults ?
+                                this.props.searchResults.map((book, i) => {
+                                    return (
+                                        <div className="card mb-3" data-i={i}>
+                                            <div className="row no-gutters">
+                                                <div className="col-md-3">
+                                                    <img src={book.image} className="card-img" alt="..." />
+                                                </div>
+                                                <div className="col-md-8">
+                                                    <div className="card-body">
+                                                        <h5 className="card-title">{book.title}</h5>
+                                                        {book.authors ? <p className="card-text text-secondary">Written by: {book.authors.map((author, i) => {
+                                                            if (i === book.authors.length - 1) {
+                                                                return author;
+                                                            }
+                                                            return author + ", ";
+                                                        })}</p> : ""}
+                                                        <p className="card-text">{book.description}</p>
+                                                        <a href={book.link} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary firstBtn">View</a>
+                                                        <a href="#" className="btn btn-sm btn-warning save-book" onClick={this.saveBook}>Save</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                                ) : <p>No Results Found.</p>}
+
+                            {/* {this.props.searchResults ? 
                                 this.props.searchResults.map((book, i) => {
                                     return (
                                         <div className="result-card" data-i={i}>
@@ -52,8 +80,7 @@ class Results extends Component {
                                             </div>
                                             <div className="row mt-2">
                                                 <div className="col-md-3 book-image" style={{ backgroundImage: `url(${book.image})` }}>
-                                                    {/* <img className="img-fluid" src={book.image} /> */}
-                                                </div>
+                                                {/* </div>
 
                                                 <div className="col-md-9">
                                                     {book.description}
@@ -63,7 +90,7 @@ class Results extends Component {
                                         </div>
                                     );
                                 }
-                            ) : <p>No Results Found.</p> }
+                            ) : <p>No Results Found.</p> } */}
 
 
 
