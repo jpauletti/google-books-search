@@ -40,6 +40,7 @@ class Search extends Component {
                 const title = path.title;
                 const authors = path.authors;
                 const previewLink = path.previewLink;
+                // cut off description after 350 characters
                 const description = path.description.substring(0, 350) + "...";
                 const image = path.imageLinks.thumbnail || path.imageLinks.smallThumbnail;
 
