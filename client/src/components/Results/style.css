@@ -3,3 +3,20 @@
     background-position: center;
     background-size: contain;
 }
+
+.btn-primary {
+    background-color: #4285f4;
+    border-color: #4285f4;
+}
+
+.save-book {
+    background-color: #fbbc05 !important;
+    border-color: #fbbc05 !important;
+    color: #212529 !important;
+}
+
+.save-book:hover {
+    color: #212529 !important;
+    background-color: #e0a800 !important;
+    border-color: #d39e00 !important;
+}

@@ -47,7 +47,7 @@ class Results extends Component {
                                                 </div>
                                                 <div className="col-md-2 col-sm-3 text-right">
                                                     <a href={book.link} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-primary firstBtn">View</a>
-                                                    <a href="#" className="btn btn-sm btn-primary save-book" onClick={this.saveBook}>Save</a>
+                                                    <a href="#" className="btn btn-sm btn-warning save-book" onClick={this.saveBook}>Save</a>
                                                 </div>
                                             </div>
                                             <div className="row mt-2">

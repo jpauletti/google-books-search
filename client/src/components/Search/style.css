@@ -1,3 +1,8 @@
+.btn-primary {
+    background-color: #4285f4;
+    border-color: #4285f4;
+}
+
 /* remove margin-left on input field */
 @media (min-width: 576px) {
     .ml-sm-3, .mx-sm-3 {

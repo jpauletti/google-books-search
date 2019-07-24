@@ -1,15 +1,19 @@
-/* .result-card {
-    border: 1px solid rgba(0,0,0, 0.3);
-    border-radius: 5px;
-    padding: 5px 0;
-} */
-
 .card-title {
     margin-bottom: .5rem;
 }
 
 .firstBtn {
     margin-right: 8px;
+}
+
+.btn-primary {
+    background-color: #4285f4;
+    border-color: #4285f4;
+}
+
+.btn-danger {
+    background-color: #ea4335;
+    border-color: #ea4335;
 }
 
 @media screen and (max-width: 991px) {
