@@ -8,10 +8,6 @@ class Search extends Component {
         search: ""
     }
 
-    componentDidMount = () => {
-
-    }
-
     inputChange = event => {
         let { value } = event.target;
         this.setState({
@@ -24,11 +20,11 @@ class Search extends Component {
 
         API.getBooks(this.state.search).then(booksRes => {
             const db = booksRes.data.items;
-            console.log(booksRes.data.items);
-            console.log(booksRes.data.items[6].volumeInfo.imageLinks);
+            // console.log(booksRes.data.items);
+            // console.log(booksRes.data.items[6].volumeInfo.imageLinks);
             // console.log(booksRes);
             const results = db.filter(book => {
-                // filter out results without the fields needed
+                // filter out results that don't have the fields needed
                 const db = book.volumeInfo;
                 if (db.title && db.authors && db.previewLink && db.description && db.imageLinks) {
                     return true;
@@ -52,8 +48,7 @@ class Search extends Component {
                     link: previewLink
                 }
             })
-            console.log("results")
-            console.log(results)
+            
             this.props.updateResults(results);
         })
 

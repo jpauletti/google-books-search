@@ -6,12 +6,12 @@ class Saved extends Component {
 
     deleteBook = event => {
         event.preventDefault();
-        console.log("delete book");
+        // console.log("delete book");
         const index = event.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-i");
         const id = this.props.savedBooks[index]._id;
 
         API.deleteBook(id).then(dbData => {
-            console.log("deleted");
+            // console.log("deleted");
             window.location.reload();
         })
     }

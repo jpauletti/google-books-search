@@ -7,10 +7,10 @@ class Results extends Component {
     saveBook = event => {
         event.preventDefault();
         const index = event.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-i");
-        console.log(index);
+        // console.log(index);
 
         const newBook = this.props.searchResults[index];
-        console.log(newBook);
+        // console.log(newBook);
 
         API.saveBook(newBook).then(dbData => {
             // console.log("saved");
